@@ -30,17 +30,16 @@ namespace classLib {
             return builder;
         }
 
-        public static IWebHostBuilder LogToSqlServer (this IWebHostBuilder builder) {
+        public static IWebHostBuilder LogToSqlServer (this IWebHostBuilder builder, IConfiguration configuration = null, IHostingEnvironment environment = null) {
 
             return builder;
         }
 
-        public static IWebHostBuilder SendEmail (this IWebHostBuilder builder) {
+        public static IWebHostBuilder SendEmail (this IWebHostBuilder builder, IConfiguration configuration = null) {
 
             return builder;
         }
-        public static IWebHostBuilder EnableLogger (this IWebHostBuilder builder,
-            IConfiguration configuration = null, IHostingEnvironment environment = null) {
+        public static IWebHostBuilder EnableLogger (this IWebHostBuilder builder) {
 
             Log.Logger = logger.CreateLogger ();
 
