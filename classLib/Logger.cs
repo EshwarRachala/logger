@@ -15,30 +15,27 @@ namespace classLib {
             .MinimumLevel.Override ("Microsoft", LogEventLevel.Information)
             .Enrich.FromLogContext ();
 
-        public static IWebHostBuilder AddConsole (this IWebHostBuilder builder) {
+        public static IWebHostBuilder LogToConsole (this IWebHostBuilder builder) {
             logger.WriteTo.Console (theme: AnsiConsoleTheme.Code,
                 outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}");
 
             return builder;
         }
 
-        public static IWebHostBuilder AddFile (this IWebHostBuilder builder, string path) {
+        public static IWebHostBuilder LogToFile (this IWebHostBuilder builder, string path) {
 
             logger.WriteTo
-                .File (path, rollingInterval : RollingInterval.Day);
+                .File (path: path, rollingInterval: RollingInterval.Day);
 
             return builder;
         }
 
-        public static IWebHostBuilder AddEmail (this IWebHostBuilder builder) {
+        public static IWebHostBuilder LogToSqlServer (this IWebHostBuilder builder) {
 
-            logger = new LoggerConfiguration ()
-                .MinimumLevel.Debug ()
-                .MinimumLevel.Override ("Microsoft", LogEventLevel.Information)
-                .Enrich.FromLogContext ();
+            return builder;
+        }
 
-            logger.WriteTo.Console (theme: AnsiConsoleTheme.Code,
-                outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}");
+        public static IWebHostBuilder SendEmail (this IWebHostBuilder builder) {
 
             return builder;
         }
