@@ -13,7 +13,13 @@ using Serilog;
 namespace test {
     public class Program {
         public static void Main (string[] args) {
-            BuildWebHost (args).Run ();
+            try {
+                BuildWebHost (args).Run ();
+            } catch (Exception ex) {
+                Log.Error (ex, "error");
+            } finally {
+                Log.CloseAndFlush ();
+            }
         }
 
         public static IWebHost BuildWebHost (string[] args) =>

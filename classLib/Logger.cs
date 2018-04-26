@@ -42,6 +42,7 @@ namespace classLib {
         public static IWebHostBuilder EnableLogger (this IWebHostBuilder builder) {
 
             Log.Logger = logger.CreateLogger ();
+            Log.Information ("testing logging");
 
             builder.UseSerilog ();
 
