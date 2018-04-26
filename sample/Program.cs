@@ -19,6 +19,7 @@ namespace test {
         public static IWebHost BuildWebHost (string[] args) =>
             WebHost.CreateDefaultBuilder (args)
             .UseStartup<Startup> ()
+            .AddConsole ()
             .EnableLogger ()
             .Build ();
     }
