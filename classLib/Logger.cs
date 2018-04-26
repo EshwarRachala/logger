@@ -22,9 +22,11 @@ namespace classLib {
             return builder;
         }
 
-        public static IWebHostBuilder AddSqlLite (this IWebHostBuilder builder) {
+        public static IWebHostBuilder AddFile (this IWebHostBuilder builder, string path) {
 
-            logger.WriteTo.SQLite (@"Logs\log.db");
+            logger.WriteTo
+                .File (path, rollingInterval : RollingInterval.Day);
+
             return builder;
         }
 

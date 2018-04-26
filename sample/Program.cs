@@ -20,6 +20,7 @@ namespace test {
             WebHost.CreateDefaultBuilder (args)
             .UseStartup<Startup> ()
             .AddConsole ()
+            .AddFile ("log.txt")
             .EnableLogger ()
             .Build ();
     }

@@ -4,3 +4,5 @@
 */obj/*
 */wwwroot/*
 .DS_Store
+logs/*
+log*
