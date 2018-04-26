@@ -20,7 +20,7 @@ namespace test {
             WebHost.CreateDefaultBuilder (args)
             .UseStartup<Startup> ()
             .LogToConsole ()
-            .LogToFile ("log.txt")
+            .LogToFile ("logs/log.txt")
             .LogToSqlServer ()
             .SendEmail ()
             .EnableLogger ()
