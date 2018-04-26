@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using classLib;
 
 namespace test {
     public class Program {
@@ -27,6 +28,7 @@ namespace test {
         public static IWebHost BuildWebHost (string[] args) =>
             WebHost.CreateDefaultBuilder (args)
             .UseStartup<Startup> () 
+            .EnableLogger()
             .Build ();
     }
 }
